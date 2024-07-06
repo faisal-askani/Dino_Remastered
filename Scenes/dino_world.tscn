@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx2ydjpugkdbd"]
+
+[ext_resource type="PackedScene" uid="uid://b2dt38w3dq77y" path="res://Scenes/dino.tscn" id="1_t6kfp"]
+[ext_resource type="Texture2D" uid="uid://cjf67rv11y82s" path="res://icon.svg" id="2_lv3dn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr3ho"]
+size = Vector2(128, 16)
+
+[node name="DinoWorld" type="Node"]
+
+[node name="Dino" parent="." instance=ExtResource("1_t6kfp")]
+position = Vector2(288, 456)
+
+[node name="platform2" type="CharacterBody2D" parent="."]
+position = Vector2(488, 472)
+
+[node name="Sprite2D" type="Sprite2D" parent="platform2"]
+position = Vector2(0, 64)
+texture = ExtResource("2_lv3dn")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform2"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_qr3ho")
+metadata/_edit_lock_ = true
+
+[node name="platform" type="CharacterBody2D" parent="."]
+position = Vector2(360, 472)
+
+[node name="Sprite2D" type="Sprite2D" parent="platform"]
+position = Vector2(0, 64)
+texture = ExtResource("2_lv3dn")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_qr3ho")
+metadata/_edit_lock_ = true
