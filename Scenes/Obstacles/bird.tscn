@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://c884xecgx2ax"]
+
+[ext_resource type="Texture2D" uid="uid://cprpp6nujmdv0" path="res://Sprites/Bird/bird.png" id="1_ccg4n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3nvf"]
+atlas = ExtResource("1_ccg4n")
+region = Rect2(0, 0, 509, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_732hd"]
+atlas = ExtResource("1_ccg4n")
+region = Rect2(509, 0, 509, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmyf1"]
+atlas = ExtResource("1_ccg4n")
+region = Rect2(1018, 0, 509, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bie7h"]
+atlas = ExtResource("1_ccg4n")
+region = Rect2(1527, 0, 509, 352)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o3l8r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3nvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_732hd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmyf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bie7h")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 6.0
+}]
+
+[node name="Bird" type="Node2D"]
+scale = Vector2(0.4, 0.4)
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o3l8r")
+animation = &"fly"
+frame_progress = 0.172555

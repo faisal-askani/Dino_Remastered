@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bajh82oy7vdic"]
+
+[ext_resource type="Texture2D" uid="uid://cbmq88ln5jnk8" path="res://Sprites/Cactus/cactus_small_triple.png" id="1_63q48"]
+
+[node name="CactusSmallTriple" type="Node2D"]
+
+[node name="CactusSmallTriple" type="Sprite2D" parent="."]
+scale = Vector2(1.764, 1.302)
+texture = ExtResource("1_63q48")
+offset = Vector2(0, -48)

@@ -1,0 +1,8 @@
+res://Scenes/dino.tscn
+res://Scenes/dino_world.tscn
+res://Scenes/cactus_small_single.tscn
+res://Scenes/cactus_large_triple.tscn
+res://Scenes/cactus_large_single.tscn
+res://Scenes/Player/dino.tscn
+res://Scenes/Obstacles/bird.tscn
+res://Scenes/test.gd
