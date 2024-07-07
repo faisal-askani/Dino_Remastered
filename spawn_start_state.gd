@@ -1,4 +1,4 @@
-extends Node
+class_name SpawnStartState extends State
 
 class Obstacle:
 	var scene: PackedScene 
@@ -13,6 +13,15 @@ var obstacles: Array[Obstacle]
 var min_spawn_rate = 1.5
 var max_spawn_rate = 3.0
 
+
+func _enter_state():
+	print("enter spawn start state")
+	timer.start()
+
+func _exit_state():
+	print("enter spawn stop state")
+	timer.stop()
+
 func _ready():
 	for i in range(0,7):
 		var obstacle = Obstacle.new()
@@ -23,14 +32,6 @@ func _ready():
 	timer.wait_time = 1
 	timer.connect("timeout", _spawn)
 	add_child(timer)
-	timer.start()
-	
-	#for obs in obstecles:
-		#var n = obs.scene.instantiate()
-		#n.position = Vector2(1280, 448)
-		#add_child(n)
-		#print("This is Obj: ", n.text, ", This is chance: ", obs.chance)
-
 
 func _spawn():
 	var spawn_chance = randf() 

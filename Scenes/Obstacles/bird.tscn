@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c884xecgx2ax"]
+[gd_scene load_steps=8 format=3 uid="uid://c884xecgx2ax"]
 
+[ext_resource type="Script" path="res://Scenes/Obstacles/movement.gd" id="1_2qmlj"]
 [ext_resource type="Texture2D" uid="uid://cprpp6nujmdv0" path="res://Sprites/Bird/bird.png" id="1_ccg4n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p3nvf"]
@@ -40,8 +41,10 @@ animations = [{
 
 [node name="Bird" type="Node2D"]
 scale = Vector2(0.4, 0.4)
+script = ExtResource("1_2qmlj")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o3l8r")
 animation = &"fly"
+autoplay = "fly"
 frame_progress = 0.172555

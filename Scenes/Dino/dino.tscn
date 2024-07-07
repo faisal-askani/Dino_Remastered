@@ -269,7 +269,7 @@ script = ExtResource("1_bfv14")
 position = Vector2(0, -60.5)
 scale = Vector2(7.55882, 7.55882)
 sprite_frames = SubResource("SpriteFrames_ou5xr")
-animation = &"jump"
+animation = &"idle"
 metadata/_edit_lock_ = true
 
 [node name="RunningCollisionTop" type="CollisionShape2D" parent="."]

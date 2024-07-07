@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bk7boyiexp6us"]
+[gd_scene load_steps=3 format=3 uid="uid://bk7boyiexp6us"]
 
+[ext_resource type="Script" path="res://Scenes/Obstacles/movement.gd" id="1_cdeo0"]
 [ext_resource type="Texture2D" uid="uid://bpgnurgkd6ase" path="res://Sprites/Cactus/cactus_small_doube.png" id="2_ug2lx"]
 
 [node name="CactusSmallDouble" type="Node2D"]
+script = ExtResource("1_cdeo0")
 
 [node name="CactusSprite" type="Sprite2D" parent="."]
 scale = Vector2(1.764, 1.302)
