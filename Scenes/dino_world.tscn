@@ -11,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://320vw3yhr5qj" path="res://Scenes/Obstacles/cactus_large_triple.tscn" id="7_8sy2v"]
 [ext_resource type="PackedScene" uid="uid://c884xecgx2ax" path="res://Scenes/Obstacles/bird.tscn" id="8_buhnr"]
 [ext_resource type="Script" path="res://Scripts/Dino/ finite_state_machine.gd" id="11_2n1h2"]
-[ext_resource type="Script" path="res://spawn_start_state.gd" id="12_vifdx"]
-[ext_resource type="Script" path="res://spawn_stop_state.gd" id="13_434tu"]
+[ext_resource type="Script" path="res://Scripts/Obstacles/spawn_start_state.gd" id="12_vifdx"]
+[ext_resource type="Script" path="res://Scripts/Obstacles/spawn_stop_state.gd" id="13_434tu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr3ho"]
 size = Vector2(128, 16)
@@ -53,7 +53,7 @@ script = ExtResource("1_1kdga")
 
 [node name="FiniteStateMachine" type="Node" parent="Spawning" node_paths=PackedStringArray("_state")]
 script = ExtResource("11_2n1h2")
-_state = NodePath("SpawnStartState")
+_state = NodePath("SpawnStopState")
 
 [node name="SpawnStartState" type="Node" parent="Spawning/FiniteStateMachine"]
 script = ExtResource("12_vifdx")

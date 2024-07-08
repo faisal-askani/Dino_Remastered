@@ -41,5 +41,6 @@ func _ready():
 	set_process_input(false)
 
 func _physics_process(delta):
-	_dino.velocity.x = 1 * 10
-	_dino.move_and_slide()
+	#_dino.velocity.x = 1 * 10
+	#_dino.move_and_slide()
+	pass

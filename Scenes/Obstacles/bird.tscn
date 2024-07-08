@@ -39,7 +39,7 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="Bird" type="Node2D"]
+[node name="Bird" type="Area2D"]
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_2qmlj")
 

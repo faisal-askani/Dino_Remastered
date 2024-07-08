@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cbmq88ln5jnk8" path="res://Sprites/Cactus/cactus_small_triple.png" id="1_63q48"]
 [ext_resource type="Script" path="res://Scenes/Obstacles/movement.gd" id="1_uya46"]
 
-[node name="CactusSmallTriple" type="Node2D"]
+[node name="CactusSmallTriple" type="Area2D"]
 script = ExtResource("1_uya46")
 
 [node name="CactusSmallTriple" type="Sprite2D" parent="."]

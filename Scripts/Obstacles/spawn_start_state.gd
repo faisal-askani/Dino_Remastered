@@ -19,7 +19,7 @@ func _enter_state():
 	timer.start()
 
 func _exit_state():
-	print("enter spawn stop state")
+	print("exit spawn start state")
 	timer.stop()
 
 func _ready():

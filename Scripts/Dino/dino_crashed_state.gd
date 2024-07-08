@@ -2,10 +2,13 @@ class_name DinoCrashedState extends State
 
 @export var _anim: AnimatedSprite2D
 
+signal crashed
+
 func _enter_state():
 	print("enter crashed")
-	set_physics_process(true)
-	set_process_input(true)
+	crashed.emit()
+	#set_physics_process(true)
+	#set_process_input(true)
 	_anim.play("crashed")
 
 func _exit_state():

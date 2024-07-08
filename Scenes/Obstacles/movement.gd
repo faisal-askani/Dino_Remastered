@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 func _process(delta):
 	position.x -= delta * 250

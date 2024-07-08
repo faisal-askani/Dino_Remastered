@@ -1,15 +1,5 @@
-res://Scenes/dino_world.tscn
-res://Scenes/Obstacles/movement.gd
-res://Scenes/Obstacles/bird.tscn
-res://Scenes/Obstacles/cactus_large_doube.tscn
-res://Scenes/Obstacles/cactus_small_triple.tscn
-res://Scenes/Obstacles/cactus_large_single.tscn
-res://Scenes/Obstacles/cactus_large_triple.tscn
-res://Scenes/Obstacles/cactus_small_double.tscn
 res://Scenes/Obstacles/cactus_small_single.tscn
-res://Scenes/Player/dino.tscn
-res://Scripts/Dino/ finite_state_machine.gd
-res://Scenes/Dino/dino.tscn
-res://spawn_stop_state.gd
-res://spawn_start_state.gd
 res://Scripts/Obstacles/spawning.gd
+res://Scenes/Obstacles/movement.gd
+res://Scenes/Dino/dino.tscn
+res://Scenes/dino_world.tscn

@@ -14,5 +14,17 @@ func _ready():
 	dino_ducking_state.running.connect(fsm.change_State.bind(dino_running_state))
 	dino_jump_state.running.connect(fsm.change_State.bind(dino_running_state))
 
-#func _on_cactus_body_entered(body):
+
+#
+#func _on_cactus_small_single_area_entered(area):
+	#print("singallllllllllllllllllllll")
 	#fsm.change_State(dino_crashed_state)
+
+
+#func _on_cactus_small_single_body_entered(body):
+	#print("singallllllllllllllllllllll")
+
+
+func _on_cactus_small_single_area_entered(area):
+	print(area.name)
+	fsm.change_State(dino_crashed_state)

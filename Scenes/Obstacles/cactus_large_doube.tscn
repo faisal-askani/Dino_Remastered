@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Obstacles/movement.gd" id="1_fltjf"]
 [ext_resource type="Texture2D" uid="uid://tgbynm2ey8yw" path="res://Sprites/Cactus/cactus_large_doube.png" id="1_wb3kr"]
 
-[node name="CactusLargeDoube" type="Node2D"]
+[node name="CactusLargeDoube" type="Area2D"]
 script = ExtResource("1_fltjf")
 
 [node name="CactusSprite" type="Sprite2D" parent="."]
