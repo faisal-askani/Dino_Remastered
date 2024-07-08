@@ -62,3 +62,6 @@ chances = Array[float]([0.2, 0.18, 0.16, 0.14, 0.12, 0.1, 0.05])
 
 [node name="SpawnStopState" type="Node" parent="Spawning/FiniteStateMachine"]
 script = ExtResource("13_434tu")
+
+[node name="Bird" parent="." instance=ExtResource("8_buhnr")]
+position = Vector2(295, 291)
