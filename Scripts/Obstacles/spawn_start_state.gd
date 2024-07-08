@@ -8,6 +8,7 @@ class Obstacle:
 @export var chances: Array[float]
 
 @onready var timer = Timer.new()
+@onready var dino = $"../../../Dino" as Dino
 
 var obstacles: Array[Obstacle] 
 var min_spawn_rate = 1.5
@@ -43,6 +44,7 @@ func _spawn():
 	for obj in obstacles:
 		if spawn_chance < obj.chance:
 			var obstacle = obj.scene.instantiate() 
+			obstacle.hit.connect(dino.on_obstacle_area_entered)
 			obstacle.position = Vector2(1280, 448)
 			add_child(obstacle)
 			break

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bk7boyiexp6us"]
 
-[ext_resource type="Script" path="res://Scenes/Obstacles/movement.gd" id="1_cdeo0"]
+[ext_resource type="Script" path="res://Scripts/Obstacles/obstacle_movement.gd" id="1_cdeo0"]
 [ext_resource type="Texture2D" uid="uid://bpgnurgkd6ase" path="res://Sprites/Cactus/cactus_small_doube.png" id="2_ug2lx"]
 
 [node name="CactusSmallDouble" type="Area2D"]

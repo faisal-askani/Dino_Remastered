@@ -1,5 +1,9 @@
-res://Scenes/Obstacles/cactus_small_single.tscn
-res://Scripts/Obstacles/spawning.gd
-res://Scenes/Obstacles/movement.gd
-res://Scenes/Dino/dino.tscn
 res://Scenes/dino_world.tscn
+res://Scripts/Obstacles/spawning.gd
+res://Scripts/Dino/dino.gd
+res://Scenes/Dino/dino.tscn
+res://Scenes/Obstacles/movement.gd
+res://Scenes/Obstacles/cactus_large_doube.tscn
+res://Scripts/Obstacles/spawn_start_state.gd
+res://Scenes/Obstacles/cactus_small_single.tscn
+res://Scripts/Dino/dino_crashed_state.gd

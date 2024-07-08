@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dgrc08jxu471i"]
 
 [ext_resource type="Texture2D" uid="uid://c5m8po7bnqtu" path="res://Sprites/Cactus/cactus_small_single.png" id="1_67ukw"]
-[ext_resource type="Script" path="res://Scenes/Obstacles/movement.gd" id="1_a87oj"]
+[ext_resource type="Script" path="res://Scripts/Obstacles/obstacle_movement.gd" id="1_d6v8f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t7ryk"]
 size = Vector2(13, 31)
@@ -13,7 +13,7 @@ size = Vector2(20, 34)
 size = Vector2(13, 42)
 
 [node name="CactusSmallSingle" type="Area2D"]
-script = ExtResource("1_a87oj")
+script = ExtResource("1_d6v8f")
 
 [node name="CactusSprite" type="Sprite2D" parent="."]
 scale = Vector2(1.764, 1.302)
@@ -34,3 +34,5 @@ debug_color = Color(0.998534, 0, 0.139499, 0.42)
 position = Vector2(23.5, -48)
 shape = SubResource("RectangleShape2D_d0rba")
 debug_color = Color(0.431373, 0.305882, 1, 0.419608)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
