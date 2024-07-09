@@ -1,7 +1,9 @@
-res://Scenes/Obstacles/bird.tscn
-res://Scripts/Obstacles/spawning.gd
 res://Scenes/dino_world.tscn
+res://Scripts/world.gd
 res://Scenes/Dino/dino.tscn
-res://Scripts/Obstacles/obstacle_movement.gd
-res://Scenes/Obstacles/cactus_large_doube.tscn
-res://Scenes/Obstacles/cactus_small_single.tscn
+res://Scripts/gameover_state.gd
+res://Scripts/Obstacles/spawning.gd
+res://Scripts/game_running_state.gd
+res://Scripts/Game States/game_manager.gd
+res://Scripts/Game States/game_running_state.gd
+res://Scripts/Game States/gameover_state.gd

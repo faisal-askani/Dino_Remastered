@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bajh82oy7vdic"]
+[gd_scene load_steps=4 format=3 uid="uid://bajh82oy7vdic"]
 
 [ext_resource type="Texture2D" uid="uid://cbmq88ln5jnk8" path="res://Sprites/Cactus/cactus_small_triple.png" id="1_63q48"]
 [ext_resource type="Script" path="res://Scripts/Obstacles/obstacle_movement.gd" id="1_uya46"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmqf1"]
+size = Vector2(125, 53)
 
 [node name="CactusSmallTriple" type="Area2D"]
 script = ExtResource("1_uya46")
@@ -10,3 +13,10 @@ script = ExtResource("1_uya46")
 scale = Vector2(1.764, 1.302)
 texture = ExtResource("1_63q48")
 offset = Vector2(0, -48)
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -58.5)
+shape = SubResource("RectangleShape2D_dmqf1")
+debug_color = Color(1, 0, 0.141176, 0.419608)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

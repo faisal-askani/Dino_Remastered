@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b5hrfxecxjont" path="res://Sprites/Dino/Crashed/crashed.png" id="2_jkc2w"]
 [ext_resource type="Texture2D" uid="uid://dto5vxpx6b32l" path="res://Sprites/Dino/Running/ducking.png" id="2_o3m6b"]
 [ext_resource type="Texture2D" uid="uid://dvji72cwxsc33" path="res://Sprites/Dino/Idle/idle_blink.png" id="2_rjqo5"]
-[ext_resource type="Script" path="res://Scripts/Dino/ finite_state_machine.gd" id="3_w42jn"]
+[ext_resource type="Script" path="res://Scripts/FSM/ finite_state_machine.gd" id="3_w42jn"]
 [ext_resource type="Script" path="res://Scripts/Dino/dino_idle_state.gd" id="4_hk6l3"]
 [ext_resource type="Texture2D" uid="uid://fr4kgnhf7anr" path="res://Sprites/Dino/Running/running.png" id="4_paxcv"]
 [ext_resource type="Script" path="res://Scripts/Dino/dino_running_state.gd" id="6_sg60t"]

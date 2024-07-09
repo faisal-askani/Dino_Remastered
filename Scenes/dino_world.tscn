@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dx2ydjpugkdbd"]
+[gd_scene load_steps=18 format=3 uid="uid://dx2ydjpugkdbd"]
 
-[ext_resource type="Script" path="res://Scripts/Obstacles/spawning.gd" id="1_1kdga"]
+[ext_resource type="Script" path="res://Scripts/Game States/world.gd" id="1_1kdga"]
 [ext_resource type="PackedScene" uid="uid://b2dt38w3dq77y" path="res://Scenes/Dino/dino.tscn" id="1_t6kfp"]
+[ext_resource type="Script" path="res://Scripts/Game States/game_manager.gd" id="2_h46va"]
 [ext_resource type="PackedScene" uid="uid://dgrc08jxu471i" path="res://Scenes/Obstacles/cactus_small_single.tscn" id="2_hwqj3"]
 [ext_resource type="Texture2D" uid="uid://cjf67rv11y82s" path="res://icon.svg" id="2_lv3dn"]
 [ext_resource type="PackedScene" uid="uid://e3e80a0xpoq7" path="res://Scenes/Obstacles/cactus_large_single.tscn" id="3_ucfyx"]
@@ -10,14 +11,25 @@
 [ext_resource type="PackedScene" uid="uid://bajh82oy7vdic" path="res://Scenes/Obstacles/cactus_small_triple.tscn" id="6_g4ih0"]
 [ext_resource type="PackedScene" uid="uid://320vw3yhr5qj" path="res://Scenes/Obstacles/cactus_large_triple.tscn" id="7_8sy2v"]
 [ext_resource type="PackedScene" uid="uid://c884xecgx2ax" path="res://Scenes/Obstacles/bird.tscn" id="8_buhnr"]
-[ext_resource type="Script" path="res://Scripts/Dino/ finite_state_machine.gd" id="11_2n1h2"]
-[ext_resource type="Script" path="res://Scripts/Obstacles/spawn_start_state.gd" id="12_vifdx"]
-[ext_resource type="Script" path="res://Scripts/Obstacles/spawn_stop_state.gd" id="13_434tu"]
+[ext_resource type="Script" path="res://Scripts/FSM/ finite_state_machine.gd" id="11_2n1h2"]
+[ext_resource type="Script" path="res://Scripts/Obstacles/spawning.gd" id="12_vifdx"]
+[ext_resource type="Script" path="res://Scripts/Game States/initial_state.gd" id="13_434tu"]
+[ext_resource type="Script" path="res://Scripts/Game States/game_running_state.gd" id="14_5mitj"]
+[ext_resource type="Script" path="res://Scripts/Game States/gameover_state.gd" id="15_v2cxn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr3ho"]
 size = Vector2(128, 16)
 
 [node name="DinoWorld" type="Node"]
+script = ExtResource("1_1kdga")
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("2_h46va")
+
+[node name="ObstaclesSpawning" type="Node2D" parent="."]
+script = ExtResource("12_vifdx")
+scenes = Array[PackedScene]([ExtResource("2_hwqj3"), ExtResource("3_ucfyx"), ExtResource("4_veqt2"), ExtResource("5_26hn1"), ExtResource("6_g4ih0"), ExtResource("7_8sy2v"), ExtResource("8_buhnr")])
+chances = Array[float]([0.2, 0.18, 0.16, 0.14, 0.12, 0.1, 0.05])
 
 [node name="Dino" parent="." instance=ExtResource("1_t6kfp")]
 position = Vector2(331, 471)
@@ -48,20 +60,20 @@ position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_qr3ho")
 metadata/_edit_lock_ = true
 
-[node name="Spawning" type="Node2D" parent="."]
-script = ExtResource("1_1kdga")
-
-[node name="FiniteStateMachine" type="Node" parent="Spawning" node_paths=PackedStringArray("_state")]
+[node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("_state")]
 script = ExtResource("11_2n1h2")
-_state = NodePath("SpawnStopState")
+_state = NodePath("InitialState")
 
-[node name="SpawnStartState" type="Node" parent="Spawning/FiniteStateMachine"]
-script = ExtResource("12_vifdx")
-scenes = Array[PackedScene]([ExtResource("2_hwqj3"), ExtResource("3_ucfyx"), ExtResource("4_veqt2"), ExtResource("5_26hn1"), ExtResource("6_g4ih0"), ExtResource("7_8sy2v"), ExtResource("8_buhnr")])
-chances = Array[float]([0.2, 0.18, 0.16, 0.14, 0.12, 0.1, 0.05])
-
-[node name="SpawnStopState" type="Node" parent="Spawning/FiniteStateMachine"]
+[node name="InitialState" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("13_434tu")
 
-[node name="Bird" parent="." instance=ExtResource("8_buhnr")]
-position = Vector2(295, 291)
+[node name="GameRunningState" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("14_5mitj")
+
+[node name="GameOverState" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("15_v2cxn")
+
+[connection signal="run_manager" from="FiniteStateMachine/GameRunningState" to="GameManager" method="_on_game_running_state_run_manager"]
+[connection signal="start_spawning" from="FiniteStateMachine/GameRunningState" to="ObstaclesSpawning" method="_on_game_running_state_start_spawning"]
+[connection signal="stop_manager" from="FiniteStateMachine/GameOverState" to="GameManager" method="_on_game_over_state_stop_manager"]
+[connection signal="stop_spawning" from="FiniteStateMachine/GameOverState" to="ObstaclesSpawning" method="_on_game_over_state_stop_spawning"]
