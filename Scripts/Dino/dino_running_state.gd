@@ -4,11 +4,18 @@ class_name DinoRunningState extends State
 @export var _dino: CharacterBody2D
 @export var _running_collisions: Array[CollisionShape2D]
 
+@onready var timer = Timer.new()
+
 signal jump
 signal ducking
 
+var _game_manager: GameManager: 
+	set(new_value):
+		_game_manager = new_value
+	
 func _enter_state():
 	print("enter running")
+	timer.start()
 	for collision in _running_collisions:
 		#collision.set_disabled(false)
 		#collision.set_visible(true)
@@ -19,6 +26,7 @@ func _enter_state():
 	_anim.play("running")
 
 func _exit_state():
+	timer.stop()
 	print("exit running")
 	for collision in _running_collisions:
 		#collision.set_disabled(true)
@@ -39,8 +47,33 @@ func _input(event):
 func _ready():
 	set_physics_process(false)
 	set_process_input(false)
+	timer.wait_time = 0
+	timer.connect("timeout", _animation_speed)
+	add_child(timer)
 
 func _physics_process(delta):
 	#_dino.velocity.x = 1 * 10
 	#_dino.move_and_slide()
 	pass
+
+var frame:int
+func _animation_speed():
+	timer.stop()
+	
+	if frame >= _anim.sprite_frames.get_frame_count(_anim.animation):
+		frame = 0
+	print("frame is: ", frame)
+	
+	if frame >= 0 && frame < _anim.sprite_frames.get_frame_count(_anim.animation):
+		_anim.frame = frame
+		print("animation frame is: ", _anim.frame)
+	
+	frame += 1
+	
+	timer.wait_time = 1.0 / _game_manager.game_speed
+	timer.start()
+
+#	var current_frame = _anim.get_frame()
+	#var current_progress = _anim.get_frame_progress()
+	#_anim.play("idle_blink")
+	#_anim.set_frame_and_progress(current_frame, current_progress)

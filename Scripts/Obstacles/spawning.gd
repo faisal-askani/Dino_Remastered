@@ -72,6 +72,5 @@ func _spawn():
 func _on_game_running_state_start_spawning():
 	_start()
 
-
 func _on_game_over_state_stop_spawning():
 	_stop()

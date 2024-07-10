@@ -1,6 +1,6 @@
 class_name GameManager extends Node
 
-@export var _initial_speed = 5.0
+@export var _initial_speed = 11.0
 @export var _speed_increase = 0.1
 
 var game_speed = 0.0
@@ -15,11 +15,10 @@ func _stop():
 
 func _ready():
 	set_process(false)
-var n=1
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	game_speed = _initial_speed
+
 func _process(delta):
-	n+=1
-	print("ahdahdah", n)
+	game_speed += _speed_increase * delta
 
 func _on_game_running_state_run_manager():
 	_start()

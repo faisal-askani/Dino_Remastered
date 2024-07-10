@@ -1,14 +1,14 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1720506517
+::res://::1720581311
 icon.svg::CompressedTexture2D::5416803147634402828::1714124993::1720246108::1::::<><>::
 README.md::TextFile::-1::1720245618::0::1::::<><>::
 ::res://Icons/::1720246108
 dino_icon_123x123.png::CompressedTexture2D::1817544337340304237::1714217258::1720246108::1::::<><>::
 dino_icon_128x128.png::CompressedTexture2D::3464918297299306849::1714217010::1720246108::1::::<><>::
-::res://Scenes/::1720506517
-dino_world.tscn::PackedScene::8830806716121112353::1720506601::0::1::::<><>::res://Scripts/world.gd<>uid://b2dt38w3dq77y::::res://Scenes/Dino/dino.tscn<>res://Scripts/game_manager.gd<>uid://dgrc08jxu471i::::res://Scenes/Obstacles/cactus_small_single.tscn<>uid://cjf67rv11y82s::::res://icon.svg<>uid://e3e80a0xpoq7::::res://Scenes/Obstacles/cactus_large_single.tscn<>uid://bk7boyiexp6us::::res://Scenes/Obstacles/cactus_small_double.tscn<>uid://bdy61up1aj8tt::::res://Scenes/Obstacles/cactus_large_doube.tscn<>uid://bajh82oy7vdic::::res://Scenes/Obstacles/cactus_small_triple.tscn<>uid://320vw3yhr5qj::::res://Scenes/Obstacles/cactus_large_triple.tscn<>uid://c884xecgx2ax::::res://Scenes/Obstacles/bird.tscn<>res://Scripts/FSM/ finite_state_machine.gd<>res://Scripts/Obstacles/spawning.gd<>res://Scripts/initial_state.gd<>res://Scripts/game_running_state.gd<>res://Scripts/gameover_state.gd
-::res://Scenes/Dino/::1720506197
-dino.tscn::PackedScene::4288917988807174408::1720506197::0::1::::<><>::uid://dk43cw53tkij3::::res://Sprites/Dino/Idle/idle.png<>res://Scripts/Dino/dino.gd<>uid://dejddctifgqra::::res://Sprites/Dino/Jump/jump.png<>uid://b5hrfxecxjont::::res://Sprites/Dino/Crashed/crashed.png<>uid://dto5vxpx6b32l::::res://Sprites/Dino/Running/ducking.png<>uid://dvji72cwxsc33::::res://Sprites/Dino/Idle/idle_blink.png<>res://Scripts/FSM/ finite_state_machine.gd<>res://Scripts/Dino/dino_idle_state.gd<>uid://fr4kgnhf7anr::::res://Sprites/Dino/Running/running.png<>res://Scripts/Dino/dino_running_state.gd<>res://Scripts/Dino/dino_jump_state.gd<>res://Scripts/Dino/dino_ducking_state.gd<>res://Scripts/Dino/dino_crashed_state.gd
+::res://Scenes/::1720507760
+dino_world.tscn::PackedScene::8830806716121112353::1720507760::0::1::::<><>::res://Scripts/Game States/world.gd<>uid://b2dt38w3dq77y::::res://Scenes/Dino/dino.tscn<>res://Scripts/Game States/game_manager.gd<>uid://dgrc08jxu471i::::res://Scenes/Obstacles/cactus_small_single.tscn<>uid://cjf67rv11y82s::::res://icon.svg<>uid://e3e80a0xpoq7::::res://Scenes/Obstacles/cactus_large_single.tscn<>uid://bk7boyiexp6us::::res://Scenes/Obstacles/cactus_small_double.tscn<>uid://bdy61up1aj8tt::::res://Scenes/Obstacles/cactus_large_doube.tscn<>uid://bajh82oy7vdic::::res://Scenes/Obstacles/cactus_small_triple.tscn<>uid://320vw3yhr5qj::::res://Scenes/Obstacles/cactus_large_triple.tscn<>uid://c884xecgx2ax::::res://Scenes/Obstacles/bird.tscn<>res://Scripts/FSM/ finite_state_machine.gd<>res://Scripts/Obstacles/spawning.gd<>res://Scripts/Game States/initial_state.gd<>res://Scripts/Game States/game_running_state.gd<>res://Scripts/Game States/gameover_state.gd
+::res://Scenes/Dino/::1720506725
+dino.tscn::PackedScene::4288917988807174408::1720506725::0::1::::<><>::uid://dk43cw53tkij3::::res://Sprites/Dino/Idle/idle.png<>res://Scripts/Dino/dino.gd<>uid://dejddctifgqra::::res://Sprites/Dino/Jump/jump.png<>uid://b5hrfxecxjont::::res://Sprites/Dino/Crashed/crashed.png<>uid://dto5vxpx6b32l::::res://Sprites/Dino/Running/ducking.png<>uid://dvji72cwxsc33::::res://Sprites/Dino/Idle/idle_blink.png<>res://Scripts/FSM/ finite_state_machine.gd<>res://Scripts/Dino/dino_idle_state.gd<>uid://fr4kgnhf7anr::::res://Sprites/Dino/Running/running.png<>res://Scripts/Dino/dino_running_state.gd<>res://Scripts/Dino/dino_jump_state.gd<>res://Scripts/Dino/dino_ducking_state.gd<>res://Scripts/Dino/dino_crashed_state.gd
 ::res://Scenes/Obstacles/::1720491566
 bird.tscn::PackedScene::210558816260667739::1720490303::0::1::::<><>::res://Scripts/Obstacles/obstacle_movement.gd<>uid://dt32mb7cl1h1u::::res://Sprites/Bird/bird_sheet.png
 cactus_large_doube.tscn::PackedScene::2648462012942703205::1720490989::0::1::::<><>::res://Scripts/Obstacles/obstacle_movement.gd<>uid://tgbynm2ey8yw::::res://Sprites/Cactus/cactus_large_doube.png
@@ -17,12 +17,7 @@ cactus_large_triple.tscn::PackedScene::2022582447584419865::1720491129::0::1::::
 cactus_small_double.tscn::PackedScene::3154456199442715038::1720491321::0::1::::<><>::res://Scripts/Obstacles/obstacle_movement.gd<>uid://bpgnurgkd6ase::::res://Sprites/Cactus/cactus_small_doube.png
 cactus_small_single.tscn::PackedScene::7615657361806382660::1720490988::0::1::::<><>::uid://c5m8po7bnqtu::::res://Sprites/Cactus/cactus_small_single.png<>res://Scripts/Obstacles/obstacle_movement.gd
 cactus_small_triple.tscn::PackedScene::2405485474519623622::1720491566::0::1::::<><>::uid://cbmq88ln5jnk8::::res://Sprites/Cactus/cactus_small_triple.png<>res://Scripts/Obstacles/obstacle_movement.gd
-::res://Scripts/::1720506560
-gameover_state.gd::GDScript::-1::1720506466::0::1::::GameOverState<>State<>::
-game_manager.gd::GDScript::-1::1720506488::0::1::::<>Node<>::
-game_running_state.gd::GDScript::-1::1720506466::0::1::::GameRunningState<>State<>::
-initial_state.gd::GDScript::-1::1720499182::0::1::::InitialState<>State<>::
-world.gd::GDScript::-1::1720505972::0::1::::World<>Node<>::
+::res://Scripts/::1720506601
 ::res://Scripts/Dino/::1720495662
 dino.gd::GDScript::-1::1720488876::0::1::::Dino<>CharacterBody2D<>::
 dino_crashed_state.gd::GDScript::-1::1720406435::0::1::::DinoCrashedState<>State<>::
@@ -33,7 +28,12 @@ dino_running_state.gd::GDScript::-1::1720411320::0::1::::DinoRunningState<>State
 ::res://Scripts/FSM/::1720495701
  finite_state_machine.gd::GDScript::-1::1720408280::0::1::::FiniteStateMachine<>Node<>::
 state.gd::GDScript::-1::1714142093::0::1::::State<>Node<>::
-::res://Scripts/Game States/::1720506560
+::res://Scripts/Game States/::1720507687
+gameover_state.gd::GDScript::-1::1720507687::0::1::::GameOverState<>State<>::
+game_manager.gd::GDScript::-1::1720507644::0::1::::GameManager<>Node<>::
+game_running_state.gd::GDScript::-1::1720507253::0::1::::GameRunningState<>State<>::
+initial_state.gd::GDScript::-1::1720499182::0::1::::InitialState<>State<>::
+world.gd::GDScript::-1::1720505972::0::1::::World<>Node<>::
 ::res://Scripts/Obstacles/::1720506118
 obstacle_movement.gd::GDScript::-1::1720491462::0::1::::<>Area2D<>::
 spawning.gd::GDScript::-1::1720506118::0::1::::Spawning<>Node2D<>::

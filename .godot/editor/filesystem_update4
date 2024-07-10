@@ -1,9 +1,7 @@
 res://Scenes/dino_world.tscn
-res://Scripts/world.gd
-res://Scenes/Dino/dino.tscn
-res://Scripts/gameover_state.gd
-res://Scripts/Obstacles/spawning.gd
-res://Scripts/game_running_state.gd
 res://Scripts/Game States/game_manager.gd
+res://Scenes/Dino/dino.tscn
+res://Scripts/Dino/dino_running_state.gd
+res://Scripts/Dino/dino.gd
+res://Scripts/Obstacles/spawning.gd
 res://Scripts/Game States/game_running_state.gd
-res://Scripts/Game States/gameover_state.gd
