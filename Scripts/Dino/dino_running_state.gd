@@ -9,9 +9,9 @@ class_name DinoRunningState extends State
 signal jump
 signal ducking
 
-var _game_manager: GameManager: 
-	set(new_value):
-		_game_manager = new_value
+#var _game_manager: GameManager: 
+	#set(new_value):
+		#_game_manager = new_value
 	
 func _enter_state():
 	print("enter running")
@@ -62,18 +62,11 @@ func _animation_speed():
 	
 	if frame >= _anim.sprite_frames.get_frame_count(_anim.animation):
 		frame = 0
-	print("frame is: ", frame)
 	
 	if frame >= 0 && frame < _anim.sprite_frames.get_frame_count(_anim.animation):
 		_anim.frame = frame
-		print("animation frame is: ", _anim.frame)
 	
 	frame += 1
 	
-	timer.wait_time = 1.0 / _game_manager.game_speed
+	timer.wait_time = 1.0 / GameManager.game_speed
 	timer.start()
-
-#	var current_frame = _anim.get_frame()
-	#var current_progress = _anim.get_frame_progress()
-	#_anim.play("idle_blink")
-	#_anim.set_frame_and_progress(current_frame, current_progress)

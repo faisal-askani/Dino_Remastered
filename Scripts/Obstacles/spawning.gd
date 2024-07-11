@@ -45,7 +45,7 @@ func _spawn():
 		if spawn_chance < obj.chance:
 			var obstacle = obj.scene.instantiate() 
 			obstacle.hit.connect(dino.on_obstacle_area_entered)
-			obstacle.position = Vector2(1280, 448)
+			obstacle.position = Vector2(1280, 473)
 			add_child(obstacle)
 			break
 		spawn_chance -= obj.chance
@@ -53,6 +53,11 @@ func _spawn():
 	timer.wait_time = randf_range(min_spawn_rate, max_spawn_rate)
 	timer.start()
 
+func _on_game_running_state_start_spawning():
+	_start()
+
+func _on_game_over_state_stop_spawning():
+	_stop()
 
 #public float minSpawnRate = 1f;
 #public float maxSpawnRate = 2f;
@@ -67,10 +72,3 @@ func _spawn():
 #c_l_triple = 0.1
 #
 #bird = 0.05
-
-
-func _on_game_running_state_start_spawning():
-	_start()
-
-func _on_game_over_state_stop_spawning():
-	_stop()

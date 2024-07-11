@@ -245,7 +245,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"running",
-"speed": 11.0
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tqvs"]
@@ -273,30 +273,32 @@ position = Vector2(0, -60.5)
 scale = Vector2(7.55882, 7.55882)
 sprite_frames = SubResource("SpriteFrames_ou5xr")
 animation = &"running"
+frame = 2
+frame_progress = 0.473655
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_2tqvs")
 debug_color = Color(0.901961, 0, 0.752941, 1)
 
-[node name="DinoArea2D" type="Area2D" parent="."]
+[node name="DinoArea" type="Area2D" parent="."]
 
-[node name="RunningCollisionTop" type="CollisionShape2D" parent="DinoArea2D"]
+[node name="RunningCollisionTop" type="CollisionShape2D" parent="DinoArea"]
 position = Vector2(7.5, -98)
 shape = SubResource("RectangleShape2D_34rtb")
 debug_color = Color(0.929412, 0.262745, 0, 0.419608)
 
-[node name="RunningCollisionBottom" type="CollisionShape2D" parent="DinoArea2D"]
+[node name="RunningCollisionBottom" type="CollisionShape2D" parent="DinoArea"]
 position = Vector2(4, -34)
 shape = SubResource("RectangleShape2D_ipvg3")
 
-[node name="DuckingCollisionTop" type="CollisionShape2D" parent="DinoArea2D"]
+[node name="DuckingCollisionTop" type="CollisionShape2D" parent="DinoArea"]
 visible = false
 position = Vector2(15, -83.5)
 shape = SubResource("RectangleShape2D_abe8i")
 disabled = true
 
-[node name="DuckingCollisionBottom" type="CollisionShape2D" parent="DinoArea2D"]
+[node name="DuckingCollisionBottom" type="CollisionShape2D" parent="DinoArea"]
 visible = false
 position = Vector2(-16, -31)
 rotation = 0.870919
@@ -316,19 +318,19 @@ _anim = NodePath("../../AnimatedSprite")
 script = ExtResource("6_sg60t")
 _anim = NodePath("../../AnimatedSprite")
 _dino = NodePath("../..")
-_running_collisions = [NodePath("../../DinoArea2D/RunningCollisionTop"), NodePath("../../DinoArea2D/RunningCollisionBottom")]
+_running_collisions = [NodePath("../../DinoArea/RunningCollisionTop"), NodePath("../../DinoArea/RunningCollisionBottom")]
 
 [node name="DinoJumpState" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("_anim", "_dino", "_jump_collisions")]
 script = ExtResource("9_fihdi")
 _anim = NodePath("../../AnimatedSprite")
 _dino = NodePath("../..")
-_jump_collisions = [NodePath("../../DinoArea2D/RunningCollisionTop"), NodePath("../../DinoArea2D/RunningCollisionBottom")]
+_jump_collisions = [NodePath("../../DinoArea/RunningCollisionTop"), NodePath("../../DinoArea/RunningCollisionBottom")]
 
 [node name="DinoDuckingState" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("_anim", "_dino", "_ducking_collisions")]
 script = ExtResource("11_ew5iw")
 _anim = NodePath("../../AnimatedSprite")
 _dino = NodePath("../..")
-_ducking_collisions = [NodePath("../../DinoArea2D/DuckingCollisionTop"), NodePath("../../DinoArea2D/DuckingCollisionBottom")]
+_ducking_collisions = [NodePath("../../DinoArea/DuckingCollisionTop"), NodePath("../../DinoArea/DuckingCollisionBottom")]
 
 [node name="DinoCrashedState" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("_anim")]
 script = ExtResource("12_uuvtm")

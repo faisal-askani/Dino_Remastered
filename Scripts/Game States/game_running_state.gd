@@ -5,7 +5,7 @@ signal run_manager
 
 func _enter_state():
 	print("enter game running state")
-	#start_spawning.emit()
+	start_spawning.emit()
 	run_manager.emit()
 
 func _exit_state():

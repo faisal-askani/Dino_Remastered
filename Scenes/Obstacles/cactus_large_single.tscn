@@ -4,18 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://d0rs5ywdbp4wo" path="res://Sprites/Cactus/cactus_large_single.png" id="1_hrrub"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x52vs"]
-size = Vector2(79, 80)
+size = Vector2(68, 75)
 
 [node name="CactusLargeSingle" type="Area2D"]
 script = ExtResource("1_0dynw")
 
 [node name="CactusSprite" type="Sprite2D" parent="."]
-scale = Vector2(1.764, 1.37)
+scale = Vector2(1.55, 1.204)
 texture = ExtResource("1_hrrub")
 offset = Vector2(0, -48)
+metadata/_edit_lock_ = true
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -85)
+position = Vector2(1, -74.5)
 shape = SubResource("RectangleShape2D_x52vs")
 debug_color = Color(1, 0, 0.141176, 0.419608)
 

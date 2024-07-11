@@ -1,7 +1,3 @@
 res://Scenes/dino_world.tscn
-res://Scripts/Game States/game_manager.gd
 res://Scenes/Dino/dino.tscn
-res://Scripts/Dino/dino_running_state.gd
-res://Scripts/Dino/dino.gd
-res://Scripts/Obstacles/spawning.gd
-res://Scripts/Game States/game_running_state.gd
+res://Scenes/Obstacles/cactus_large_doube.tscn
