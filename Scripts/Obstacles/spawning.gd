@@ -45,7 +45,7 @@ func _spawn():
 		if spawn_chance < obj.chance:
 			var obstacle = obj.scene.instantiate() 
 			obstacle.hit.connect(dino.on_obstacle_area_entered)
-			obstacle.position = Vector2(1280, 473)
+			obstacle.position = Vector2(1280, 533)
 			add_child(obstacle)
 			break
 		spawn_chance -= obj.chance

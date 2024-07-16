@@ -3,8 +3,8 @@ class_name GameManager extends Node
 @export var _initial_speed = 5.0
 @export var _speed_increase = 0.1
 
-static var _n = 0.0
 static var game_speed = 0.0
+static var obstacle_speed = 0.0
 
 func _start():
 	print("game manager physics start")
@@ -16,12 +16,11 @@ func _stop():
 
 func _ready():
 	set_process(false)
-	_n = _initial_speed
+	game_speed = _initial_speed
 
 func _process(delta):
-	_n += _speed_increase * delta
-	game_speed = GameManager._n 
-	print("raw speed: ", _n, " ::::: game speed: ", game_speed)
+	obstacle_speed += _speed_increase 
+	game_speed += _speed_increase * delta
 
 func _on_game_running_state_run_manager():
 	_start()

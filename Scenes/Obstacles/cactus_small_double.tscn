@@ -10,6 +10,7 @@ size = Vector2(118, 54)
 script = ExtResource("1_cdeo0")
 
 [node name="CactusSprite" type="Sprite2D" parent="."]
+z_index = 4
 scale = Vector2(1.764, 1.302)
 texture = ExtResource("2_ug2lx")
 offset = Vector2(0, -48)

@@ -1,3 +1,2 @@
 res://Scenes/dino_world.tscn
-res://Scenes/Dino/dino.tscn
-res://Scenes/Obstacles/cactus_large_doube.tscn
+res://Scripts/move_bkg.gd

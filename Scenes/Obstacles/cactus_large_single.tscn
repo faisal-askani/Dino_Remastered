@@ -7,6 +7,7 @@
 size = Vector2(68, 75)
 
 [node name="CactusLargeSingle" type="Area2D"]
+z_index = 4
 script = ExtResource("1_0dynw")
 
 [node name="CactusSprite" type="Sprite2D" parent="."]

@@ -169,7 +169,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"ducking",
-"speed": 11.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -194,7 +194,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 8.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -211,7 +211,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"idle_blink",
-"speed": 8.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -272,9 +272,7 @@ script = ExtResource("1_bfv14")
 position = Vector2(0, -60.5)
 scale = Vector2(7.55882, 7.55882)
 sprite_frames = SubResource("SpriteFrames_ou5xr")
-animation = &"running"
-frame = 2
-frame_progress = 0.473655
+animation = &"idle"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
