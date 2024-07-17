@@ -21,7 +21,13 @@ func _start():
 
 func _stop():
 	print("spawning stop")
+	for obs in get_children().filter(func (child): return child is Area2D):
+		obs.set_process(false)
 	timer.stop()
+
+#for pipe in get_children().filter(func (child): return child is Pipe):
+		#(pipe as Pipe).is_start = false
+	#print("Stop the Scene")
 
 func _ready():
 	for i in range(0,7):
