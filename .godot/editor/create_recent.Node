@@ -1,3 +1,5 @@
+CollisionShape2D
+StaticBody2D
 ParallaxBackground
 Sprite2D
 ParallaxLayer
@@ -8,7 +10,5 @@ GameOverState
 Node2D
 GameRunningState
 InitialState
-CollisionShape2D
 AnimationPlayer
 CollisionPolygon2D
-FiniteStateMachine

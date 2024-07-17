@@ -1,10 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://dx2ydjpugkdbd"]
+[gd_scene load_steps=20 format=3 uid="uid://dx2ydjpugkdbd"]
 
 [ext_resource type="Script" path="res://Scripts/Game States/world.gd" id="1_1kdga"]
 [ext_resource type="PackedScene" uid="uid://b2dt38w3dq77y" path="res://Scenes/Dino/dino.tscn" id="1_t6kfp"]
 [ext_resource type="Script" path="res://Scripts/Game States/game_manager.gd" id="2_h46va"]
 [ext_resource type="PackedScene" uid="uid://dgrc08jxu471i" path="res://Scenes/Obstacles/cactus_small_single.tscn" id="2_hwqj3"]
-[ext_resource type="Texture2D" uid="uid://cjf67rv11y82s" path="res://icon.svg" id="2_lv3dn"]
 [ext_resource type="PackedScene" uid="uid://e3e80a0xpoq7" path="res://Scenes/Obstacles/cactus_large_single.tscn" id="3_ucfyx"]
 [ext_resource type="PackedScene" uid="uid://bk7boyiexp6us" path="res://Scenes/Obstacles/cactus_small_double.tscn" id="4_veqt2"]
 [ext_resource type="PackedScene" uid="uid://bdy61up1aj8tt" path="res://Scenes/Obstacles/cactus_large_doube.tscn" id="5_26hn1"]
@@ -17,7 +16,6 @@
 [ext_resource type="Script" path="res://Scripts/move_bkg.gd" id="13_urkr7"]
 [ext_resource type="Script" path="res://Scripts/Game States/game_running_state.gd" id="14_5mitj"]
 [ext_resource type="Texture2D" uid="uid://bij0whtqb3fqh" path="res://Sprites/Background/background.png" id="14_ltsyi"]
-[ext_resource type="Script" path="res://Scripts/move_g.gd" id="15_oeywc"]
 [ext_resource type="Script" path="res://Scripts/Game States/gameover_state.gd" id="15_v2cxn"]
 [ext_resource type="Texture2D" uid="uid://rgisbmgs3pw1" path="res://Sprites/Background/ground.png" id="16_3idqt"]
 
@@ -39,43 +37,23 @@ metadata/_edit_lock_ = true
 
 [node name="Dino" parent="." instance=ExtResource("1_t6kfp")]
 z_index = 4
-position = Vector2(331, 542)
+position = Vector2(331, 541)
 metadata/_edit_lock_ = true
 
-[node name="platform" type="CharacterBody2D" parent="."]
-position = Vector2(360, 543)
+[node name="StandingGround" type="StaticBody2D" parent="."]
+position = Vector2(360, 542)
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="platform"]
-visible = false
-position = Vector2(0, 64)
-texture = ExtResource("2_lv3dn")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StandingGround"]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_qr3ho")
-metadata/_edit_lock_ = true
-
-[node name="platform2" type="CharacterBody2D" parent="."]
-position = Vector2(488, 543)
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="platform2"]
-visible = false
-position = Vector2(0, 64)
-texture = ExtResource("2_lv3dn")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platform2"]
-position = Vector2(0, 8)
-shape = SubResource("RectangleShape2D_qr3ho")
-metadata/_edit_lock_ = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("13_urkr7")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(9716, 0)
 
 [node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource("14_ltsyi")
@@ -83,9 +61,10 @@ offset = Vector2(4858, 271)
 
 [node name="ParallaxGround" type="ParallaxBackground" parent="."]
 layer = 1
-script = ExtResource("15_oeywc")
+script = ExtResource("13_urkr7")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxGround"]
+motion_mirroring = Vector2(9716, 0)
 
 [node name="Ground" type="Sprite2D" parent="ParallaxGround/ParallaxLayer"]
 position = Vector2(0, 541.1)
@@ -105,7 +84,11 @@ script = ExtResource("14_5mitj")
 [node name="GameOverState" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("15_v2cxn")
 
+[connection signal="run_background" from="FiniteStateMachine/GameRunningState" to="ParallaxBackground" method="_on_game_running_state_run_background"]
+[connection signal="run_background" from="FiniteStateMachine/GameRunningState" to="ParallaxGround" method="_on_game_running_state_run_background"]
 [connection signal="run_manager" from="FiniteStateMachine/GameRunningState" to="GameManager" method="_on_game_running_state_run_manager"]
 [connection signal="start_spawning" from="FiniteStateMachine/GameRunningState" to="ObstaclesSpawning" method="_on_game_running_state_start_spawning"]
+[connection signal="stop_background" from="FiniteStateMachine/GameOverState" to="ParallaxBackground" method="_on_game_over_state_stop_background"]
+[connection signal="stop_background" from="FiniteStateMachine/GameOverState" to="ParallaxGround" method="_on_game_over_state_stop_background"]
 [connection signal="stop_manager" from="FiniteStateMachine/GameOverState" to="GameManager" method="_on_game_over_state_stop_manager"]
 [connection signal="stop_spawning" from="FiniteStateMachine/GameOverState" to="ObstaclesSpawning" method="_on_game_over_state_stop_spawning"]

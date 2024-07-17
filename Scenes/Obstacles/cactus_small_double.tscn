@@ -1,23 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://bk7boyiexp6us"]
+[gd_scene load_steps=6 format=3 uid="uid://bk7boyiexp6us"]
 
 [ext_resource type="Script" path="res://Scripts/Obstacles/obstacle_movement.gd" id="1_cdeo0"]
 [ext_resource type="Texture2D" uid="uid://bpgnurgkd6ase" path="res://Sprites/Cactus/cactus_small_doube.png" id="2_ug2lx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nu6fl"]
-size = Vector2(118, 54)
+size = Vector2(18, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3lal"]
+size = Vector2(80, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n12im"]
+size = Vector2(19, 28)
 
 [node name="CactusSmallDouble" type="Area2D"]
+z_index = 4
 script = ExtResource("1_cdeo0")
 
 [node name="CactusSprite" type="Sprite2D" parent="."]
-z_index = 4
 scale = Vector2(1.764, 1.302)
 texture = ExtResource("2_ug2lx")
 offset = Vector2(0, -48)
 
-[node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(1, -60)
+[node name="CollisionLeft" type="CollisionShape2D" parent="."]
+position = Vector2(-53, -50)
 shape = SubResource("RectangleShape2D_nu6fl")
+debug_color = Color(1, 0, 0.141176, 0.419608)
+
+[node name="CollisionMiddle" type="CollisionShape2D" parent="."]
+position = Vector2(1, -69.5)
+shape = SubResource("RectangleShape2D_s3lal")
+debug_color = Color(1, 0, 0.141176, 0.419608)
+
+[node name="CollisionRight" type="CollisionShape2D" parent="."]
+position = Vector2(55.5, -61)
+shape = SubResource("RectangleShape2D_n12im")
 debug_color = Color(1, 0, 0.141176, 0.419608)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
