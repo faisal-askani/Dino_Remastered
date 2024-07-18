@@ -1,3 +1,6 @@
+TextureButton
+Label
+CanvasLayer
 CollisionShape2D
 StaticBody2D
 ParallaxBackground
@@ -10,5 +13,3 @@ GameOverState
 Node2D
 GameRunningState
 InitialState
-AnimationPlayer
-CollisionPolygon2D

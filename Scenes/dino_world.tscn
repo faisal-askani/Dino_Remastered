@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dx2ydjpugkdbd"]
+[gd_scene load_steps=26 format=3 uid="uid://dx2ydjpugkdbd"]
 
 [ext_resource type="Script" path="res://Scripts/Game States/world.gd" id="1_1kdga"]
 [ext_resource type="PackedScene" uid="uid://b2dt38w3dq77y" path="res://Scenes/Dino/dino.tscn" id="1_t6kfp"]
@@ -16,15 +16,28 @@
 [ext_resource type="Script" path="res://Scripts/move_bkg.gd" id="13_urkr7"]
 [ext_resource type="Script" path="res://Scripts/Game States/game_running_state.gd" id="14_5mitj"]
 [ext_resource type="Texture2D" uid="uid://bij0whtqb3fqh" path="res://Sprites/Background/background.png" id="14_ltsyi"]
+[ext_resource type="Script" path="res://Scripts/gameover_canvas.gd" id="15_2i22d"]
 [ext_resource type="Script" path="res://Scripts/Game States/gameover_state.gd" id="15_v2cxn"]
 [ext_resource type="Texture2D" uid="uid://rgisbmgs3pw1" path="res://Sprites/Background/ground.png" id="16_3idqt"]
+[ext_resource type="FontFile" uid="uid://wc00y7evjmy2" path="res://Fonts/Early GameBoy.ttf" id="16_v8tjx"]
+[ext_resource type="Texture2D" uid="uid://nvq11hw3m4k" path="res://GUI/Replay/Default.png" id="17_2u7po"]
+[ext_resource type="Texture2D" uid="uid://do0on4n0k1l52" path="res://GUI/Replay/Hover.png" id="18_fmll3"]
+[ext_resource type="Script" path="res://Scenes/replay_btn.gd" id="19_m7r0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr3ho"]
 size = Vector2(128, 16)
 
+[sub_resource type="LabelSettings" id="LabelSettings_0gi3l"]
+font = ExtResource("16_v8tjx")
+font_size = 65
+font_color = Color(0.196078, 0.827451, 0.235294, 1)
+outline_size = 16
+outline_color = Color(0.237539, 0.237539, 0.237539, 1)
+
 [node name="DinoWorld" type="Node"]
 script = ExtResource("1_1kdga")
 metadata/_edit_horizontal_guides_ = [1187.0, 542.0]
+metadata/_edit_vertical_guides_ = [1281.0]
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("2_h46va")
@@ -58,6 +71,7 @@ motion_mirroring = Vector2(9716, 0)
 [node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource("14_ltsyi")
 offset = Vector2(4858, 271)
+metadata/_edit_lock_ = true
 
 [node name="ParallaxGround" type="ParallaxBackground" parent="."]
 layer = 1
@@ -70,6 +84,43 @@ motion_mirroring = Vector2(9716, 0)
 position = Vector2(0, 541.1)
 texture = ExtResource("16_3idqt")
 offset = Vector2(4858, 81.5)
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("15_2i22d")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -11.5
+offset_right = 43.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_0gi3l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReplayBtn" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 81.0
+offset_right = 20.0
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("17_2u7po")
+texture_pressed = ExtResource("18_fmll3")
+script = ExtResource("19_m7r0r")
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("_state")]
 script = ExtResource("11_2n1h2")
@@ -88,6 +139,7 @@ script = ExtResource("15_v2cxn")
 [connection signal="run_background" from="FiniteStateMachine/GameRunningState" to="ParallaxGround" method="_on_game_running_state_run_background"]
 [connection signal="run_manager" from="FiniteStateMachine/GameRunningState" to="GameManager" method="_on_game_running_state_run_manager"]
 [connection signal="start_spawning" from="FiniteStateMachine/GameRunningState" to="ObstaclesSpawning" method="_on_game_running_state_start_spawning"]
+[connection signal="show_gameover" from="FiniteStateMachine/GameOverState" to="CanvasLayer" method="_on_game_over_state_show_gameover"]
 [connection signal="stop_background" from="FiniteStateMachine/GameOverState" to="ParallaxBackground" method="_on_game_over_state_stop_background"]
 [connection signal="stop_background" from="FiniteStateMachine/GameOverState" to="ParallaxGround" method="_on_game_over_state_stop_background"]
 [connection signal="stop_manager" from="FiniteStateMachine/GameOverState" to="GameManager" method="_on_game_over_state_stop_manager"]

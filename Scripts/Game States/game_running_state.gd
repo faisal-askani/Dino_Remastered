@@ -9,6 +9,7 @@ func _enter_state():
 	start_spawning.emit()
 	run_manager.emit()
 	run_background.emit()
+	
 
 func _exit_state():
 	print("exit game running state")
