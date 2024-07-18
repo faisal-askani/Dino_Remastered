@@ -4,6 +4,7 @@ signal stop_spawning
 signal stop_manager
 signal stop_background
 signal show_gameover
+signal stop_score
 
 func _enter_state():
 	print("enter gameover state")
@@ -11,6 +12,7 @@ func _enter_state():
 	stop_manager.emit()
 	stop_background.emit()
 	show_gameover.emit()
+	stop_score.emit()
 
 func _exit_state():
 	print("exit gameover state")

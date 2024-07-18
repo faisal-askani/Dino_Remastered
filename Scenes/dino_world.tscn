@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dx2ydjpugkdbd"]
+[gd_scene load_steps=28 format=3 uid="uid://dx2ydjpugkdbd"]
 
 [ext_resource type="Script" path="res://Scripts/Game States/world.gd" id="1_1kdga"]
 [ext_resource type="PackedScene" uid="uid://b2dt38w3dq77y" path="res://Scenes/Dino/dino.tscn" id="1_t6kfp"]
@@ -21,11 +21,18 @@
 [ext_resource type="Texture2D" uid="uid://rgisbmgs3pw1" path="res://Sprites/Background/ground.png" id="16_3idqt"]
 [ext_resource type="FontFile" uid="uid://wc00y7evjmy2" path="res://Fonts/Early GameBoy.ttf" id="16_v8tjx"]
 [ext_resource type="Texture2D" uid="uid://nvq11hw3m4k" path="res://GUI/Replay/Default.png" id="17_2u7po"]
+[ext_resource type="Script" path="res://Scripts/score_label.gd" id="17_frxuk"]
 [ext_resource type="Texture2D" uid="uid://do0on4n0k1l52" path="res://GUI/Replay/Hover.png" id="18_fmll3"]
-[ext_resource type="Script" path="res://Scenes/replay_btn.gd" id="19_m7r0r"]
+[ext_resource type="Script" path="res://Scripts/replay_btn.gd" id="19_m7r0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr3ho"]
 size = Vector2(128, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yajtu"]
+font = ExtResource("16_v8tjx")
+font_size = 36
+outline_size = 15
+outline_color = Color(0.233925, 0.233925, 0.233925, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0gi3l"]
 font = ExtResource("16_v8tjx")
@@ -89,6 +96,19 @@ metadata/_edit_lock_ = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("15_2i22d")
 
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -214.0
+offset_top = 24.0
+offset_right = -34.0
+offset_bottom = 69.0
+grow_horizontal = 0
+text = "00010"
+label_settings = SubResource("LabelSettings_yajtu")
+script = ExtResource("17_frxuk")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -135,9 +155,11 @@ script = ExtResource("15_v2cxn")
 [connection signal="run_background" from="FiniteStateMachine/GameRunningState" to="ParallaxBackground" method="_on_game_running_state_run_background"]
 [connection signal="run_background" from="FiniteStateMachine/GameRunningState" to="ParallaxGround" method="_on_game_running_state_run_background"]
 [connection signal="run_manager" from="FiniteStateMachine/GameRunningState" to="GameManager" method="_on_game_running_state_run_manager"]
+[connection signal="run_score" from="FiniteStateMachine/GameRunningState" to="CanvasLayer/ScoreLabel" method="_on_game_running_state_run_score"]
 [connection signal="start_spawning" from="FiniteStateMachine/GameRunningState" to="ObstaclesSpawning" method="_on_game_running_state_start_spawning"]
 [connection signal="show_gameover" from="FiniteStateMachine/GameOverState" to="CanvasLayer" method="_on_game_over_state_show_gameover"]
 [connection signal="stop_background" from="FiniteStateMachine/GameOverState" to="ParallaxBackground" method="_on_game_over_state_stop_background"]
 [connection signal="stop_background" from="FiniteStateMachine/GameOverState" to="ParallaxGround" method="_on_game_over_state_stop_background"]
 [connection signal="stop_manager" from="FiniteStateMachine/GameOverState" to="GameManager" method="_on_game_over_state_stop_manager"]
+[connection signal="stop_score" from="FiniteStateMachine/GameOverState" to="CanvasLayer/ScoreLabel" method="_on_game_over_state_stop_score"]
 [connection signal="stop_spawning" from="FiniteStateMachine/GameOverState" to="ObstaclesSpawning" method="_on_game_over_state_stop_spawning"]

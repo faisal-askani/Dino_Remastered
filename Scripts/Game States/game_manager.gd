@@ -5,6 +5,7 @@ class_name GameManager extends Node
 
 static var game_speed = 0.0
 static var obstacle_speed = 0.0
+static var score = 0.0
 
 func _start():
 	print("game manager physics start")
@@ -18,10 +19,12 @@ func _ready():
 	set_process(false)
 	game_speed = _initial_speed
 	obstacle_speed = 0.0
+	score = 0.0
 
 func _process(delta):
 	obstacle_speed += _speed_increase 
 	game_speed += _speed_increase * delta
+	score += game_speed * delta
 
 func _on_game_running_state_run_manager():
 	_start()
