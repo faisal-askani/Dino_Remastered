@@ -42,8 +42,8 @@ func _ready():
 
 func _spawn():
 	var spawn_chance = randf() 
-	print("This is spawn and timer is ", timer.wait_time, 
-		  " randf: ", spawn_chance)
+	#print("This is spawn and timer is ", timer.wait_time, 
+		  #" randf: ", spawn_chance)
 	
 	timer.stop()
 	

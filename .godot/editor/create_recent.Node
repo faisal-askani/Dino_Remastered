@@ -1,3 +1,4 @@
+VBoxContainer
 TextureButton
 Label
 CanvasLayer
@@ -12,4 +13,3 @@ Node
 GameOverState
 Node2D
 GameRunningState
-InitialState

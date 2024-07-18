@@ -1,21 +1,17 @@
 extends CanvasLayer
 
-@onready var gameover_label = $Label
-@onready var replay_btn = $ReplayBtn
+@onready var gameover_container = $VBoxContainer
 
 func _show_gameover():
 	print("canvas layer start")
-	gameover_label.show()
-	replay_btn.show()
+	gameover_container.show()
 
 func _hide_gameover():
 	print("canvas layer stop")
-	gameover_label.hide()
-	replay_btn.hide()
+	gameover_container.hide()
 
 func _ready():
-	gameover_label.hide()
-	replay_btn.hide()
+	gameover_container.hide()
 
 func _on_game_over_state_show_gameover():
 	_show_gameover()

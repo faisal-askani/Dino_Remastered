@@ -17,6 +17,7 @@ func _stop():
 func _ready():
 	set_process(false)
 	game_speed = _initial_speed
+	obstacle_speed = 0.0
 
 func _process(delta):
 	obstacle_speed += _speed_increase 

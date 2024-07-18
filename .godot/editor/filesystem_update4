@@ -1,6 +1,5 @@
-res://Scenes/dino_world.tscn
-res://Scripts/gameover_canvas.gd
-res://Scenes/Dino/dino.tscn
 res://Scenes/Obstacles/cactus_large_doube.tscn
+res://Scripts/Obstacles/obstacle_movement.gd
+res://Scenes/dino_world.tscn
+res://Scenes/Dino/dino.tscn
 res://Scenes/Obstacles/bird.tscn
-res://Scenes/replay_btn.gd
