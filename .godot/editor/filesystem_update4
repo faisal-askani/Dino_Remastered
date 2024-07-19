@@ -1,4 +1,8 @@
-res://Scenes/dino_world.tscn
-res://Scenes/Dino/dino.tscn
-res://Scenes/Obstacles/cactus_large_doube.tscn
+res://Scenes/Stages/opening_scene.tscn
+res://Scenes/sound_player.tscn
+res://Scripts/Opening/play_btn.gd
 res://Scenes/Obstacles/bird.tscn
+res://Scripts/Obstacles/obstacle_movement.gd
+res://Scenes/Stages/dino_world.tscn
+res://Scripts/Dino/dino_running_state.gd
+res://Scripts/Dino/dino_ducking_state.gd

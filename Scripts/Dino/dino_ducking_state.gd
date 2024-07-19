@@ -4,10 +4,16 @@ class_name DinoDuckingState extends State
 @export var _dino: CharacterBody2D
 @export var _ducking_collisions: Array[CollisionShape2D]
 
+@onready var timer = Timer.new()
+
+var frame: int
+
 signal running
 
 func _enter_state():
 	print("enter ducking")
+	timer.wait_time = 1.0 / GameManager.game_speed
+	timer.start()
 	for collision in _ducking_collisions:
 		#collision.set_disabled(false)
 		#collision.set_visible(true)
@@ -19,6 +25,7 @@ func _enter_state():
 
 func _exit_state():
 	print("exit ducking")
+	timer.stop()
 	for collision in _ducking_collisions:
 		#collision.set_disabled(true)
 		#collision.set_visible(false)
@@ -35,6 +42,23 @@ func _input(event):
 func _ready():
 	set_physics_process(false)
 	set_process_input(false)
+	timer.wait_time = 0
+	timer.connect("timeout", _ducking_animation_speed)
+	add_child(timer)
 
 func _physics_process(delta):
 	pass
+
+func _ducking_animation_speed():
+	timer.stop()
+	
+	if frame >= _anim.sprite_frames.get_frame_count(_anim.animation):
+		frame = 0
+	
+	if frame >= 0 && frame < _anim.sprite_frames.get_frame_count(_anim.animation):
+		_anim.frame = frame
+	
+	frame += 1
+	
+	timer.wait_time = 1.0 / GameManager.game_speed
+	timer.start()

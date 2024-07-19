@@ -6,6 +6,8 @@ class_name DinoRunningState extends State
 
 @onready var timer = Timer.new()
 
+var frame: int
+
 signal jump
 signal ducking
 
@@ -56,7 +58,6 @@ func _physics_process(delta):
 	#_dino.move_and_slide()
 	pass
 
-var frame:int
 func _animation_speed():
 	timer.stop()
 	
