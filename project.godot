@@ -17,6 +17,7 @@ config/icon="res://Icons/dino_icon_123x123.png"
 
 [autoload]
 
+scene_manager="*res://Scenes/scene_manager.tscn"
 sound_player="*res://Scenes/sound_player.tscn"
 
 [display]

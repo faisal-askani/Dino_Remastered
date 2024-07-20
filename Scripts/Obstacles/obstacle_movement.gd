@@ -11,4 +11,4 @@ func _on_area_entered(area):
 	print("area enter: ", area.name)
 	if area.name == "DinoArea":
 		print("Obstacle: ", area.name)
-		#hit.emit()
+		hit.emit()

@@ -20,3 +20,6 @@ func _on_game_running_state_run_background():
 
 func _on_game_over_state_stop_background():
 	_stop()
+
+func _on_game_over_state_restart_game():
+	scroll_offset.x = 0

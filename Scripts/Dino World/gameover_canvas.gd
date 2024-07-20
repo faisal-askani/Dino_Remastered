@@ -15,3 +15,6 @@ func _ready():
 
 func _on_game_over_state_show_gameover():
 	_show_gameover()
+
+func _on_game_over_state_restart_game():
+	_hide_gameover()

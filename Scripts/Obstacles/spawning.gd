@@ -25,9 +25,9 @@ func _stop():
 		obs.set_process(false)
 	timer.stop()
 
-#for pipe in get_children().filter(func (child): return child is Pipe):
-		#(pipe as Pipe).is_start = false
-	#print("Stop the Scene")
+func _destroy_obstacles():
+	for obs in get_children().filter(func (child): return child is Area2D):
+		obs.queue_free()
 
 func _ready():
 	for i in range(0,7):
@@ -67,16 +67,5 @@ func _on_game_running_state_start_spawning():
 func _on_game_over_state_stop_spawning():
 	_stop()
 
-#public float minSpawnRate = 1f;
-#public float maxSpawnRate = 2f;
-
-#c_s_single = 0.2
-#c_l_single = 0.18
-#
-#c_s_double = 0.16
-#c_l_double = 0.14
-#
-#c_s_triple = 0.12
-#c_l_triple = 0.1
-#
-#bird = 0.05
+func _on_game_over_state_restart_game():
+	_destroy_obstacles()
