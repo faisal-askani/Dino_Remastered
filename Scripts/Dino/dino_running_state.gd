@@ -17,6 +17,7 @@ signal ducking
 	
 func _enter_state():
 	print("enter running")
+	if _dino.position.y < 541: _dino.position.y = 541
 	timer.start()
 	for collision in _running_collisions:
 		#collision.set_disabled(false)
@@ -60,14 +61,10 @@ func _physics_process(delta):
 
 func _animation_speed():
 	timer.stop()
-	
 	if frame >= _anim.sprite_frames.get_frame_count(_anim.animation):
 		frame = 0
-	
 	if frame >= 0 && frame < _anim.sprite_frames.get_frame_count(_anim.animation):
 		_anim.frame = frame
-	
 	frame += 1
-	
 	timer.wait_time = 1.0 / GameManager.game_speed
 	timer.start()

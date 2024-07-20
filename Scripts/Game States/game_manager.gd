@@ -9,6 +9,9 @@ static var score = 0.0
 
 func _start():
 	print("game manager physics start")
+	game_speed = _initial_speed
+	obstacle_speed = 0.0
+	score = 0.0
 	set_process(true)
 
 func _stop():
@@ -31,14 +34,4 @@ func _on_game_running_state_run_manager():
 
 func _on_game_over_state_stop_manager():
 	_stop()
-
-#public static GameManager Instance { get; private set; }
-#public float initialGameSpeed = 5f;
-#public float gameSpeedIncrease = 0.1f;
-#public float gameSpeed { get; private set; }
-
-#gameSpeed += gameSpeedIncrease * Time.deltaTime;
-#score += gameSpeed * Time.deltaTime;
-
-
 

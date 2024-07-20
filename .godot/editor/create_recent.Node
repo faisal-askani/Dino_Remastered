@@ -1,6 +1,7 @@
-CanvasLayer
 HBoxContainer
+HSplitContainer
 Label
+CanvasLayer
 VBoxContainer
 TextureButton
 CollisionShape2D
@@ -11,4 +12,3 @@ ParallaxLayer
 Area2D
 Camera2D
 Node
-GameOverState

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dx2ydjpugkdbd"]
+[gd_scene load_steps=30 format=3 uid="uid://dx2ydjpugkdbd"]
 
 [ext_resource type="Script" path="res://Scripts/Game States/world.gd" id="1_1kdga"]
 [ext_resource type="PackedScene" uid="uid://b2dt38w3dq77y" path="res://Scenes/Dino/dino.tscn" id="1_t6kfp"]
@@ -27,6 +27,18 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr3ho"]
 size = Vector2(128, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ymab"]
+font = ExtResource("16_v8tjx")
+font_size = 36
+outline_size = 15
+outline_color = Color(0.235294, 0.235294, 0.235294, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_soj08"]
+font = ExtResource("16_v8tjx")
+font_size = 36
+outline_size = 15
+outline_color = Color(0.235294, 0.235294, 0.235294, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yajtu"]
 font = ExtResource("16_v8tjx")
@@ -96,15 +108,35 @@ metadata/_edit_lock_ = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("15_2i22d")
 
-[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -214.0
-offset_top = 24.0
-offset_right = -34.0
-offset_bottom = 69.0
+offset_left = -540.0
+offset_top = 20.0
+offset_right = -19.0
+offset_bottom = 65.0
 grow_horizontal = 0
+size_flags_horizontal = 10
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="HiLabel" type="Label" parent="CanvasLayer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Hi-"
+label_settings = SubResource("LabelSettings_4ymab")
+
+[node name="HiScoreLabel" type="Label" parent="CanvasLayer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "00010"
+label_settings = SubResource("LabelSettings_soj08")
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
 text = "00010"
 label_settings = SubResource("LabelSettings_yajtu")
 script = ExtResource("17_frxuk")
@@ -122,6 +154,7 @@ offset_bottom = 47.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.3, 1.3)
+metadata/_edit_lock_ = true
 
 [node name="GameOverLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
@@ -155,7 +188,7 @@ script = ExtResource("15_v2cxn")
 [connection signal="run_background" from="FiniteStateMachine/GameRunningState" to="ParallaxBackground" method="_on_game_running_state_run_background"]
 [connection signal="run_background" from="FiniteStateMachine/GameRunningState" to="ParallaxGround" method="_on_game_running_state_run_background"]
 [connection signal="run_manager" from="FiniteStateMachine/GameRunningState" to="GameManager" method="_on_game_running_state_run_manager"]
-[connection signal="run_score" from="FiniteStateMachine/GameRunningState" to="CanvasLayer/ScoreLabel" method="_on_game_running_state_run_score"]
+[connection signal="run_score" from="FiniteStateMachine/GameRunningState" to="CanvasLayer/HBoxContainer/ScoreLabel" method="_on_game_running_state_run_score"]
 [connection signal="start_spawning" from="FiniteStateMachine/GameRunningState" to="ObstaclesSpawning" method="_on_game_running_state_start_spawning"]
 [connection signal="restart_game" from="FiniteStateMachine/GameOverState" to="ObstaclesSpawning" method="_on_game_over_state_restart_game"]
 [connection signal="restart_game" from="FiniteStateMachine/GameOverState" to="Dino" method="_on_game_over_state_restart_game"]
@@ -166,5 +199,5 @@ script = ExtResource("15_v2cxn")
 [connection signal="stop_background" from="FiniteStateMachine/GameOverState" to="ParallaxBackground" method="_on_game_over_state_stop_background"]
 [connection signal="stop_background" from="FiniteStateMachine/GameOverState" to="ParallaxGround" method="_on_game_over_state_stop_background"]
 [connection signal="stop_manager" from="FiniteStateMachine/GameOverState" to="GameManager" method="_on_game_over_state_stop_manager"]
-[connection signal="stop_score" from="FiniteStateMachine/GameOverState" to="CanvasLayer/ScoreLabel" method="_on_game_over_state_stop_score"]
+[connection signal="stop_score" from="FiniteStateMachine/GameOverState" to="CanvasLayer/HBoxContainer/ScoreLabel" method="_on_game_over_state_stop_score"]
 [connection signal="stop_spawning" from="FiniteStateMachine/GameOverState" to="ObstaclesSpawning" method="_on_game_over_state_stop_spawning"]

@@ -17,6 +17,5 @@ func _ready():
 func on_obstacle_area_entered():
 	fsm.change_State(dino_crashed_state)
 
-
 func _on_game_over_state_restart_game():
-	fsm.change_State(dino_jump_state)
+	fsm.change_State(dino_running_state)
