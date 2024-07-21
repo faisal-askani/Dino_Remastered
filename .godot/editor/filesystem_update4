@@ -1,9 +1,2 @@
-res://Scenes/Stages/opening_scene.tscn
-res://Scenes/Obstacles/bird.tscn
 res://Scenes/Stages/dino_world.tscn
-res://Scenes/scene_manager.tscn
-res://Scripts/Dino/dino.gd
-res://Scenes/Dino/dino.tscn
-res://Scripts/Dino/dino_running_state.gd
-res://Scripts/Dino World/replay_btn.gd
-res://Scripts/Game States/game_manager.gd
+res://Scenes/Stages/opening_scene.tscn

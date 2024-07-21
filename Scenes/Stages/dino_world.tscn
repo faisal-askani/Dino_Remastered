@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dx2ydjpugkdbd"]
+[gd_scene load_steps=31 format=3 uid="uid://dx2ydjpugkdbd"]
 
 [ext_resource type="Script" path="res://Scripts/Game States/world.gd" id="1_1kdga"]
 [ext_resource type="PackedScene" uid="uid://b2dt38w3dq77y" path="res://Scenes/Dino/dino.tscn" id="1_t6kfp"]
@@ -22,6 +22,7 @@
 [ext_resource type="FontFile" uid="uid://wc00y7evjmy2" path="res://Fonts/Early GameBoy.ttf" id="16_v8tjx"]
 [ext_resource type="Texture2D" uid="uid://nvq11hw3m4k" path="res://GUI/Replay/Default.png" id="17_2u7po"]
 [ext_resource type="Script" path="res://Scripts/Dino World/score_label.gd" id="17_frxuk"]
+[ext_resource type="Script" path="res://Scripts/Dino World/hi_score_label.gd" id="17_sw2qd"]
 [ext_resource type="Texture2D" uid="uid://do0on4n0k1l52" path="res://GUI/Replay/Hover.png" id="18_fmll3"]
 [ext_resource type="Script" path="res://Scripts/Dino World/replay_btn.gd" id="19_m7r0r"]
 
@@ -133,6 +134,7 @@ label_settings = SubResource("LabelSettings_4ymab")
 layout_mode = 2
 text = "00010"
 label_settings = SubResource("LabelSettings_soj08")
+script = ExtResource("17_sw2qd")
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
@@ -189,6 +191,7 @@ script = ExtResource("15_v2cxn")
 [connection signal="run_background" from="FiniteStateMachine/GameRunningState" to="ParallaxGround" method="_on_game_running_state_run_background"]
 [connection signal="run_manager" from="FiniteStateMachine/GameRunningState" to="GameManager" method="_on_game_running_state_run_manager"]
 [connection signal="run_score" from="FiniteStateMachine/GameRunningState" to="CanvasLayer/HBoxContainer/ScoreLabel" method="_on_game_running_state_run_score"]
+[connection signal="show_high_score" from="FiniteStateMachine/GameRunningState" to="CanvasLayer/HBoxContainer/HBoxContainer2/HiScoreLabel" method="_on_game_running_state_show_high_score"]
 [connection signal="start_spawning" from="FiniteStateMachine/GameRunningState" to="ObstaclesSpawning" method="_on_game_running_state_start_spawning"]
 [connection signal="restart_game" from="FiniteStateMachine/GameOverState" to="ObstaclesSpawning" method="_on_game_over_state_restart_game"]
 [connection signal="restart_game" from="FiniteStateMachine/GameOverState" to="Dino" method="_on_game_over_state_restart_game"]
@@ -196,6 +199,7 @@ script = ExtResource("15_v2cxn")
 [connection signal="restart_game" from="FiniteStateMachine/GameOverState" to="ParallaxGround" method="_on_game_over_state_restart_game"]
 [connection signal="restart_game" from="FiniteStateMachine/GameOverState" to="CanvasLayer" method="_on_game_over_state_restart_game"]
 [connection signal="show_gameover" from="FiniteStateMachine/GameOverState" to="CanvasLayer" method="_on_game_over_state_show_gameover"]
+[connection signal="show_high_score" from="FiniteStateMachine/GameOverState" to="CanvasLayer/HBoxContainer/HBoxContainer2/HiScoreLabel" method="_on_game_over_state_show_high_score"]
 [connection signal="stop_background" from="FiniteStateMachine/GameOverState" to="ParallaxBackground" method="_on_game_over_state_stop_background"]
 [connection signal="stop_background" from="FiniteStateMachine/GameOverState" to="ParallaxGround" method="_on_game_over_state_stop_background"]
 [connection signal="stop_manager" from="FiniteStateMachine/GameOverState" to="GameManager" method="_on_game_over_state_stop_manager"]

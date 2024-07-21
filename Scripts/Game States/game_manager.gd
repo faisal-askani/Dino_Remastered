@@ -6,17 +6,25 @@ class_name GameManager extends Node
 static var game_speed = 0.0
 static var obstacle_speed = 0.0
 static var score = 0.0
+static var previous_score = false
+
 
 func _start():
 	print("game manager physics start")
 	game_speed = _initial_speed
 	obstacle_speed = 0.0
-	score = 0.0
+	score = 0
+	previous_score = false
 	set_process(true)
 
 func _stop():
 	print("game manager physics stop")
 	set_process(false)
+	if  score > global_score.data.high_score:
+		print("score is: ", score, " global score is: ", global_score.data.high_score)
+		previous_score = true
+		global_score.data.high_score = score
+		global_score.data.save()
 
 func _ready():
 	set_process(false)

@@ -11,4 +11,4 @@ class_name World extends Node
 func _ready():
 	dino.dino_idle_state.jump.connect(fsm.change_State.bind(game_running_state))
 	dino.dino_crashed_state.crashed.connect(fsm.change_State.bind(game_over_state))
-
+	

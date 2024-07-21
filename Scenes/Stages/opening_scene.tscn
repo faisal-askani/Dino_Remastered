@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7bdvidlqagou"]
+[gd_scene load_steps=12 format=3 uid="uid://b7bdvidlqagou"]
 
 [ext_resource type="Script" path="res://Scripts/Opening/opening_scene_parallax.gd" id="1_381dd"]
 [ext_resource type="Texture2D" uid="uid://yre0d27bapea" path="res://GUI/PlayText/Default.png" id="5_8p6os"]
@@ -10,6 +10,15 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr3ho"]
 size = Vector2(128, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vmfc4"]
+font = ExtResource("16_nxsbq")
+font_color = Color(0.98747, 0.56922, 1.15514e-06, 1)
+outline_size = 5
+outline_color = Color(0.0547875, 1.49085e-05, 0.248902, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.619608)
+shadow_offset = Vector2(4, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0gi3l"]
 font = ExtResource("16_nxsbq")
@@ -63,6 +72,21 @@ offset = Vector2(4858, 81.5)
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = 284.5
+offset_right = 184.0
+offset_bottom = 307.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Developer: Faisal Askani"
+label_settings = SubResource("LabelSettings_vmfc4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
