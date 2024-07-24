@@ -1,2 +1,5 @@
-res://Scenes/Stages/dino_world.tscn
 res://Scenes/Stages/opening_scene.tscn
+res://Scenes/Stages/dino_world.tscn
+res://Scenes/Dino/dino.tscn
+res://Scenes/sound_player.tscn
+res://Scenes/Obstacles/bird.tscn

@@ -1,16 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddfjxtefkt71g"]
+[gd_scene load_steps=5 format=3 uid="uid://ddfjxtefkt71g"]
 
+[ext_resource type="AudioStream" uid="uid://cpflgt0y14ovd" path="res://Sounds/mile_stone.wav" id="1_cnn0k"]
 [ext_resource type="AudioStream" uid="uid://dq5tgqcbtbxq8" path="res://Sounds/scene_change.wav" id="1_x71sq"]
+[ext_resource type="AudioStream" uid="uid://dfyc0c54kgd2y" path="res://Sounds/jump.wav" id="1_yh5ex"]
+[ext_resource type="AudioStream" uid="uid://3e6kyhmev0pj" path="res://Sounds/gameover.wav" id="2_opsaw"]
 
 [node name="SoundPlayer" type="Node2D"]
 
-[node name="HurtAudioStream" type="AudioStreamPlayer2D" parent="."]
+[node name="MileStoneAudioStream" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_cnn0k")
 
-[node name="ScoreAudioStream" type="AudioStreamPlayer2D" parent="."]
-
-[node name="WingAudioStream" type="AudioStreamPlayer2D" parent="."]
+[node name="JumpAudioStream" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_yh5ex")
+volume_db = 6.249
 
 [node name="DieAudioStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_opsaw")
 
 [node name="SceneChangeAudioStream" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_x71sq")

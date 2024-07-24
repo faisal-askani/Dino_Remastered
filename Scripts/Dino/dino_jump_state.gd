@@ -4,6 +4,8 @@ class_name DinoJumpState extends State
 @export var _dino: CharacterBody2D
 @export var _jump_collisions: Array[CollisionShape2D]
 
+@onready var _sound_play = sound_player.get_node("JumpAudioStream")
+
 const JUMP_VELOCITY = -550.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -21,6 +23,7 @@ func _enter_state():
 	set_physics_process(true)
 	_dino.velocity.y = JUMP_VELOCITY
 	_anim.play("jump")
+	_sound_play.play()
 	_dino.move_and_slide()
 
 func _exit_state():

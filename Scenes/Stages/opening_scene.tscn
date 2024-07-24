@@ -13,6 +13,7 @@ size = Vector2(128, 16)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vmfc4"]
 font = ExtResource("16_nxsbq")
+font_size = 19
 font_color = Color(0.98747, 0.56922, 1.15514e-06, 1)
 outline_size = 5
 outline_color = Color(0.0547875, 1.49085e-05, 0.248902, 1)
@@ -30,6 +31,7 @@ outline_color = Color(0.205908, 0.238161, 0.0562738, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_aw4tf"]
 font = ExtResource("16_nxsbq")
 font_size = 22
+font_color = Color(1, 0.261658, 0.184692, 1)
 outline_size = 2
 outline_color = Color(0.0253638, 0.0253638, 0.0253638, 1)
 shadow_color = Color(0, 0, 0, 0.576471)
