@@ -35,4 +35,4 @@ git clone https://github.com/faisal-askani/Dino_Remastered.git
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [Personal Use Only](LICENSE).
