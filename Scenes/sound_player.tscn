@@ -12,7 +12,7 @@ stream = ExtResource("1_cnn0k")
 
 [node name="JumpAudioStream" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_yh5ex")
-volume_db = 6.249
+volume_db = 19.53
 
 [node name="DieAudioStream" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_opsaw")

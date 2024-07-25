@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7bdvidlqagou"]
+[gd_scene load_steps=13 format=3 uid="uid://b7bdvidlqagou"]
 
 [ext_resource type="Script" path="res://Scripts/Opening/opening_scene_parallax.gd" id="1_381dd"]
+[ext_resource type="Texture2D" uid="uid://n3madr23xghb" path="res://Sprites/Background/background1.png" id="2_tf7tb"]
+[ext_resource type="Texture2D" uid="uid://tbyeida2tclt" path="res://Sprites/Background/background2.png" id="3_7f236"]
+[ext_resource type="Texture2D" uid="uid://d1x0b1rjy7fgr" path="res://Sprites/Background/ground1.png" id="4_ri30g"]
 [ext_resource type="Texture2D" uid="uid://yre0d27bapea" path="res://GUI/PlayText/Default.png" id="5_8p6os"]
 [ext_resource type="Texture2D" uid="uid://b71hol06p1fd1" path="res://GUI/PlayText/Hover.png" id="6_4cscg"]
 [ext_resource type="Script" path="res://Scripts/Opening/play_btn.gd" id="8_y33vy"]
-[ext_resource type="Texture2D" uid="uid://bij0whtqb3fqh" path="res://Sprites/Background/background.png" id="13_bef5k"]
-[ext_resource type="Texture2D" uid="uid://rgisbmgs3pw1" path="res://Sprites/Background/ground.png" id="14_smjna"]
 [ext_resource type="FontFile" uid="uid://wc00y7evjmy2" path="res://Fonts/Early GameBoy.ttf" id="16_nxsbq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr3ho"]
@@ -55,10 +56,14 @@ script = ExtResource("1_381dd")
 motion_scale = Vector2(0.2, 0.2)
 motion_mirroring = Vector2(9716, 0)
 
-[node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource("13_bef5k")
-offset = Vector2(4858, 271)
-metadata/_edit_lock_ = true
+[node name="Background1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("2_tf7tb")
+offset = Vector2(2429, 271)
+
+[node name="Background2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(4858, 0)
+texture = ExtResource("3_7f236")
+offset = Vector2(2429, 271)
 
 [node name="ParallaxGround" type="ParallaxBackground" parent="."]
 layer = 1
@@ -67,11 +72,15 @@ script = ExtResource("1_381dd")
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxGround"]
 motion_mirroring = Vector2(9716, 0)
 
-[node name="Ground" type="Sprite2D" parent="ParallaxGround/ParallaxLayer"]
+[node name="Ground1" type="Sprite2D" parent="ParallaxGround/ParallaxLayer"]
 position = Vector2(0, 541.1)
-texture = ExtResource("14_smjna")
-offset = Vector2(4858, 81.5)
-metadata/_edit_lock_ = true
+texture = ExtResource("4_ri30g")
+offset = Vector2(2429, 81.5)
+
+[node name="Ground2" type="Sprite2D" parent="ParallaxGround/ParallaxLayer"]
+position = Vector2(4858, 541.1)
+texture = ExtResource("4_ri30g")
+offset = Vector2(2429, 81.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -89,6 +98,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Developer: Faisal Askani"
 label_settings = SubResource("LabelSettings_vmfc4")
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
@@ -102,6 +112,7 @@ offset_right = 326.5
 offset_bottom = 97.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="NameLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
@@ -111,6 +122,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters = 21
 visible_ratio = 2.625
+metadata/_edit_lock_ = true
 
 [node name="RemasteredLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
@@ -118,6 +130,7 @@ size_flags_horizontal = 8
 text = "Remastered "
 label_settings = SubResource("LabelSettings_aw4tf")
 horizontal_alignment = 2
+metadata/_edit_lock_ = true
 
 [node name="PlayBtn" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
@@ -126,3 +139,4 @@ size_flags_vertical = 10
 texture_normal = ExtResource("5_8p6os")
 texture_pressed = ExtResource("6_4cscg")
 script = ExtResource("8_y33vy")
+metadata/_edit_lock_ = true
