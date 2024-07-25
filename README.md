@@ -4,7 +4,7 @@
  
 [Click here to play the game on itch.io](https://floating-echoes.itch.io/dino-run-remastered)
 
-<img src="sample_image.gif" width="960" height="252">
+<img src="sample_image.png" width="960" height="252">
 
 ## Gameplay
 
